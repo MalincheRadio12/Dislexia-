@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detectar Dislexia en Niños - Guía para Padres</title>
+    <link rel="icon" href="img/trastorno-mental.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(145deg, #f5f7ff 0%, #eef2fa 100%);
+            color: #1e2a3e;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        :root {
+            --primary-blue: #1e88e5;
+            --light-blue: #e3f2fd;
+            --medium-blue: #42a5f5;
+            --dark-blue: #0b3b5f;
+            --white: #ffffff;
+            --text-dark: #1e2a3e;
+            --text-light: #4a627a;
+            --accent-green: #43a047;
+            --accent-orange: #fb8c00;
+            --accent-red: #e53935;
+            --gradient-bg: linear-gradient(135deg, #0b3b5f, #1e88e5);
+        }
+
+        header {
+            background: var(--gradient-bg);
+            color: white;
+            padding: 40px 0;
+            border-radius: 0 0 40px 40px;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            animation: rotate 30s linear infinite;
+            pointer-events: none;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .header-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .logo-icon {
+            font-size: 48px;
+            color: #ffd966;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+        }
+        h1 {
+            font-size: 2.8rem;
+            background: linear-gradient(135deg, #fff, #ffd966);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: none;
+        }
+        .subtitle {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        section {
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(2px);
+            border-radius: 32px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            border: 1px solid rgba(66,165,245,0.2);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        section:hover {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: var(--dark-blue);
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 4px solid var(--primary-blue);
+            display: inline-block;
+            font-size: 1.9rem;
+            letter-spacing: -0.5px;
+        }
+
+        h3 {
+            color: var(--medium-blue);
+            margin: 20px 0 10px;
+            font-weight: 700;
+        }
+
+        .intro-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .intro-image {
+            width: 100%;
+            max-width: 320px;
+            border-radius: 24px;
+            margin: 0 auto;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .intro-image:hover {
+            transform: scale(1.02);
+        }
+
+        .survey-container {
+            background: linear-gradient(120deg, #f0f7ff, #ffffff);
+            border-radius: 24px;
+            padding: 30px;
+            margin-top: 20px;
+            box-shadow: inset 0 1px 3px #0001, 0 8px 20px rgba(0,0,0,0.05);
+        }
+        .question {
+            margin-bottom: 25px;
+            padding: 12px 15px;
+            background: white;
+            border-radius: 20px;
+            transition: all 0.2s;
+        }
+        .question:hover {
+            background: #fef9e6;
+            transform: translateX(4px);
+        }
+        .question-text {
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #0b3b5f;
+            font-size: 1.05rem;
+        }
+        .options {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            background: #eef2ff;
+            padding: 6px 16px;
+            border-radius: 40px;
+            transition: background 0.2s;
+        }
+        .option:hover {
+            background: #d9e6ff;
+        }
+        .option input {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+        .option label {
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(95deg, var(--primary-blue), var(--dark-blue));
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+            filter: brightness(1.02);
+        }
+        .btn-whatsapp {
+            background: #25D366;
+            background: linear-gradient(95deg, #25D366, #128C7E);
+        }
+        .btn-orange {
+            background: linear-gradient(95deg, #fb8c00, #f57c00);
+        }
+        .btn-large {
+            font-size: 1.1rem;
+            padding: 14px 40px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+        .info-card {
+            background: white;
+            border-radius: 24px;
+            padding: 25px 20px;
+            border-left: 6px solid var(--primary-blue);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+            transition: all 0.25s;
+        }
+        .info-card:hover {
+            transform: translateY(-8px);
+            border-left-width: 8px;
+        }
+
+        .book-section {
+            background: linear-gradient(145deg, #ffffff, #eef5ff);
+        }
+        .book-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin: 30px 0;
+        }
+        .book-image {
+            flex: 1;
+            min-width: 260px;
+            max-width: 320px;
+        }
+        .book-details {
+            flex: 1;
+            min-width: 280px;
+        }
+        .book-title {
+            color: var(--dark-blue);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        .price-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        .price-option {
+            flex: 1;
+            background: white;
+            border-radius: 28px;
+            padding: 28px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #e0e7ff;
+        }
+        .price-option:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.12);
+        }
+        .stock-warning {
+            background: #fff3e0;
+            border-radius: 40px;
+            padding: 8px 16px;
+            display: inline-block;
+            font-weight: bold;
+            color: #d84315;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        .timer {
+            font-family: monospace;
+            font-size: 2rem;
+            font-weight: 800;
+            background: #0b3b5f;
+            color: #ffd966;
+            padding: 8px 20px;
+            border-radius: 60px;
+            display: inline-block;
+            margin: 12px 0;
+            letter-spacing: 2px;
+        }
+        .price {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin: 15px 0;
+        }
+        .price.original {
+            font-size: 1.4rem;
+            text-decoration: line-through;
+            color: #9e9e9e;
+            font-weight: normal;
+        }
+        .price.digital {
+            color: var(--accent-green);
+        }
+        .promo-badge {
+            background: #ff6d00;
+            color: white;
+            border-radius: 40px;
+            padding: 5px 18px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+        .features {
+            list-style: none;
+            margin: 20px 0;
+        }
+        .features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eef2ff;
+        }
+        .features li i {
+            color: var(--accent-green);
+            margin-right: 12px;
+        }
+
+        footer {
+            background: var(--dark-blue);
+            color: white;
+            padding: 40px 0;
+            border-radius: 40px 40px 0 0;
+            margin-top: 40px;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        .footer-links a {
+            color: #bbdefb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .options { flex-direction: column; gap: 8px; }
+            .timer { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo-container">
+                <i class="fas fa-child logo-icon"></i>
+                <h1>Detectar Dislexia en Niños</h1>
+            </div>
+            <p class="subtitle">Aprender a leer y escribir no tiene que ser un proceso doloroso. Detectar y entender la dislexia desde los primeros años hace la diferencia. Guía completa para padres.</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Introducción -->
+        <section>
+            <h2>¿Qué es la Dislexia?</h2>
+            <div class="intro-content">
+                <p>La <strong>dislexia</strong> es una dificultad específica del aprendizaje de origen neurobiológico. No afecta la inteligencia, sino la forma en que el cerebro procesa el lenguaje escrito y hablado. Con detección temprana y apoyo adecuado, los niños pueden desarrollar todo su potencial.</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+                    <img src="img/photo-1509062522246-3755977927d7.avif" class="intro-image" alt="niño leyendo" style="max-width: 280px;">
+                    <img src="img/photo-1577896851231-70ef18881754.avif" class="intro-image" alt="apoyo educativo" style="max-width: 280px;">
+                </div>
+                <p>Afecta aproximadamente al <strong>10% de la población</strong> y suele ser hereditaria. Las estrategias multisensoriales y el refuerzo positivo marcan una gran diferencia.</p>
+            </div>
+        </section>
+
+        <!-- Encuesta de detección (15 preguntas) -->
+        <section>
+            <h2>Encuesta de Detección Temprana (15 preguntas)</h2>
+            <p>Responde según el comportamiento de tu hijo de 5 a 10 años. <strong>No es un diagnóstico, sino una guía.</strong></p>
+            <div class="survey-container">
+                <div class="question"><div class="question-text">1. ¿Tu hijo tiene dificultad para aprender y recordar las letras del alfabeto?</div><div class="options"><div class="option"><input type="radio" name="q1" value="si"><label>Sí</label></div><div class="option"><input type="radio" name="q1" value="no"><label>No</label></div></div></div>
+                <div class="question"><div class="question-text">2. ¿Invierte o confunde letras (como "b" por "d", "p" por "q") al leer o escribir?</div><div class="options"><div class="option"><input type="radio" name="q2" value="si"><label>Sí</label></div><div class="option"><input type="radio" name="q2" value="no"><label>No</label></div></div></div>
+                <div class="question"><div class="question-text">3. ¿Tiene problemas para concentrarse en tareas de lectura o escritura en la escuela?</div><div class="options"><div class="option"><input type="radio" name="q3" value="si"><label>Sí</label></div><div class="option"><input type="radio" name="q3" value="no"><label>No</label></div></div></div>
+                <div class="question"><div class="question-text">4. ¿Lee de forma lenta, con pausas frecuentes o adivinando palabras?</div><div class="options"><div class="option"><input type="radio" name="q4" value="si"><label>Sí</label></div><div class="option"><input type="radio" name="q4" value="no"><label>No</label></div></div></div>
+                <div class="question"><div class="question-text">5. ¿Evita actividades que involucren lectura o muestra frustración al leer?</div><div class="options"><div class="option"><input type="radio" name="q5" value="si"><label>Sí</label></div><div class="option"><input type="radio" name="q5" value="no"><label>No</label></div></div></div>
+                <div class="question"><div class="question-text">6. ¿Tiene dificultad para seguir instrucciones con varios pasos?</div><div class="options"><div class="option"><input type="radio" name="q6" value="si"><label>Sí</label></div><div class="option"><input type="radio" name="q6" value="no"><label>No</label></div></div></div>
+                <div class="question"><div class="question-text">7. ¿Confunde palabras que suenan similar (como "casa" y "taza")?</div><div class="options"><div class="option"><input type="radio" name="q7" value="si"><label>Sí</label></div><div class="option"><input type="radio" name="q7" value="no"><label>No</label></div></div></div>
+                <div class="question"><div class="question-text">8. ¿Tiene problemas para memorizar tablas de multiplicar, días de la semana o meses del año?</div><div class="options"><div class="option"><input type="radio" name="q8" value="si"><label>Sí</label></div><div class="option"><input type="radio" name="q8" value="no"><label>No</label></div></div></div>
+                <div class="question"><div class="question-text">9. ¿Escribe con ortografía deficiente a pesar de practicar frecuentemente?</div><div class="options"><div class="option"><input type="radio" name="q9" value="si"><label>Sí</label></div><div class="option"><input type="radio" name="q9" value="no"><label>No</label></div></div></div>
+                <div class="question"><div class="question-text">10. ¿Le cuesta organizar sus pensamientos al expresarse verbalmente?</div><div class="options"><div class="option"><input type="radio" name="q10" value="si"><label>Sí</label></div><div class="option"><input type="radio" name="q10" value="no"><label>No</label></div></div></div>
+                <div class="question"><div class="question-text">11. ¿Tiene dificultad para distinguir izquierda de derecha?</div><div class="options"><div class="option"><input type="radio" name="q11" value="si"><label>Sí</label></div><div class="option"><input type="radio" name="q11" value="no"><label>No</label></div></div></div>
+                <div class="question"><div class="question-text">12. ¿Comete errores al copiar textos del pizarrón o de un libro?</div><div class="options"><div class="option"><input type="radio" name="q12" value="si"><label>Sí</label></div><div class="option"><input type="radio" name="q12" value="no"><label>No</label></div></div></div>
+                <div class="question"><div class="question-text">13. ¿Tiene baja autoestima o se frustra fácilmente con tareas escolares?</div><div class="options"><div class="option"><input type="radio" name="q13" value="si"><label>Sí</label></div><div class="option"><input type="radio" name="q13" value="no"><label>No</label></div></div></div>
+                <div class="question"><div class="question-text">14. ¿Tiene dificultad para aprender secuencias como el abecedario o los números?</div><div class="options"><div class="option"><input type="radio" name="q14" value="si"><label>Sí</label></div><div class="option"><input type="radio" name="q14" value="no"><label>No</label></div></div></div>
+                <div class="question"><div class="question-text">15. ¿Alguien en la familia (padres, hermanos) ha tenido dificultades similares con la lectura?</div><div class="options"><div class="option"><input type="radio" name="q15" value="si"><label>Sí</label></div><div class="option"><input type="radio" name="q15" value="no"><label>No</label></div></div></div>
+                
+                <button class="btn btn-large" id="evaluarBtn">🔍 Evaluar Respuestas</button>
+                <div id="resultadoEncuesta" style="margin-top: 20px; display: none; padding: 18px; border-radius: 24px; background: #e8f5e9; border-left: 6px solid #43a047;"></div>
+            </div>
+        </section>
+
+        <!-- Información clave -->
+        <section>
+            <h2>Información Clave sobre la Dislexia</h2>
+            <div class="info-grid">
+                <div class="info-card"><h3><i class="fas fa-brain"></i> Causas</h3><p>Origen neurobiológico y genético. Las áreas del lenguaje funcionan de forma diferente.</p></div>
+                <div class="info-card"><h3><i class="fas fa-search"></i> Señales Tempranas</h3><p>Dificultad para rimar, aprender el alfabeto, confusión de letras, lectura lenta.</p></div>
+                <div class="info-card"><h3><i class="fas fa-graduation-cap"></i> Apoyo Educativo</h3><p>Métodos multisensoriales, fonética estructurada y adaptaciones en el aula.</p></div>
+                <div class="info-card"><h3><i class="fas fa-heart"></i> Apoyo Emocional</h3><p>Elogiar el esfuerzo, fomentar autoestima, celebrar pequeños logros.</p></div>
+            </div>
+        </section>
+
+        <!-- Sección del libro -->
+        <section id="libro" class="book-section">
+            <h2>📘 Guía Completa para Padres</h2>
+            <p>Escrito por expertos en educación especial, una herramienta transformadora.</p>
+            <div class="book-container">
+                <div class="book-image">
+                    <img src="img/Guia-de-la-Dislexia-para-Padres.pdf.png" alt="Portada del libro" style="width:100%; border-radius: 24px; box-shadow: 0 20px 30px rgba(0,0,0,0.15);">
+                </div>
+                <div class="book-details">
+                    <h3 class="book-title">Dislexia Infantil: Guía para Padres</h3>
+                    <p>Estrategias prácticas, ejercicios de estimulación, consejos escolares y emocionales. Incluye material descargable y actividades en casa.</p>
+                    
+                    <div class="price-container">
+                        <!-- Libro físico con últimas 10 unidades y cronómetro -->
+                        <div class="price-option">
+                            <div class="stock-warning"><i class="fas fa-fire"></i> ¡ÚLTIMAS 10 UNIDADES DISPONIBLES!</div>
+                            <h3>Libro Físico</h3>
+                            <div class="price">$600 MXN</div>
+                            <div id="countdownTimer" class="timer">01:00:00</div>
+                            <p style="font-size:0.85rem; margin-top: -8px;">⏳ Oferta con tiempo limitado</p>
+                            <ul class="features">
+                                <li><i class="fas fa-check"></i> Edición impresa a todo color</li>
+                                <li><i class="fas fa-check"></i> Envío exprés</li>
+                                <li><i class="fas fa-check"></i> Material adicional descargable</li>
+                            </ul>
+                            <a href="libro_agotado.html" target="_blank" class="btn btn-orange" style="background: #ff8c00;">📦 Consultar Disponibilidad</a>
+                        </div>
+
+                        <!-- Versión digital con descuento $99 -->
+                        <div class="price-option">
+                            <div class="promo-badge"><i class="fas fa-tag"></i> OFERTA FLASH 40% OFF</div>
+                            <h3>Versión Digital</h3>
+                            <div><span class="price original">$150 MXN</span> <span class="price digital">$99 MXN</span></div>
+                            <p>Ebook PDF interactivo + actividades</p>
+                            <ul class="features">
+                                <li><i class="fas fa-check"></i> Acceso inmediato</li>
+                                <li><i class="fas fa-check"></i> Guía de actividades prácticas</li>
+                                <li><i class="fas fa-check"></i> Compatible con tablets y pc</li>
+                            </ul>
+                            <a href="https://wa.me/2414206686?text=¡Hola!%20Quiero%20comprar%20el%20libro%20digital%20'Dislexia%20Infantil'%20por%20solo%20%2499%20MXN" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Comprar ahora $99</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p style="margin-top: 10px; font-style: italic;">🔥 ¡Aprovecha el precio especial en digital! La versión física tiene cupo limitado.</p>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="logo-container"><i class="fas fa-book-open logo-icon"></i><h3>Detectar Dislexia en Niños</h3></div>
+            <p>Información y apoyo para familias, con empatía y conocimiento.</p>
+            <div class="footer-links">
+                <a href="#introduccion">¿Qué es la dislexia?</a>
+                <a href="#encuesta">Encuesta de detección</a>
+                <a href="#informacion">Información</a>
+                <a href="#libro">Nuestro libro</a>
+            </div>
+            <p class="copyright">© 2025 Detectar Dislexia en Niños. Contenido informativo, no sustituye diagnóstico profesional.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Evaluación de encuesta con consejos personalizados
+        document.getElementById('evaluarBtn').addEventListener('click', function() {
+            let respuestasSi = 0;
+            for(let i = 1; i <= 15; i++) {
+                let seleccionado = document.querySelector(`input[name="q${i}"]:checked`);
+                if(seleccionado && seleccionado.value === 'si') respuestasSi++;
+            }
+            
+            let resultadoDiv = document.getElementById('resultadoEncuesta');
+            resultadoDiv.style.display = 'block';
+            
+            let mensaje = '';
+            let colorFondo = '';
+            
+            if(respuestasSi <= 5) {
+                colorFondo = '#e8f5e9';
+                mensaje = `
+                    <h3 style="color:#2e7d32;">✅ Pocas señales de dislexia</h3>
+                    <p>Basado en tus respuestas, tu hijo muestra pocas características asociadas a la dislexia. Sin embargo, si aún tienes dudas o notas dificultades específicas, te recomendamos:</p>
+                    <ul style="margin-left: 20px; margin-top: 8px;">
+                        <li>Observar su evolución en los próximos meses.</li>
+                        <li>Fomentar la lectura en casa con libros de su interés.</li>
+                        <li>Mantener comunicación con la maestra sobre su progreso.</li>
+                    </ul>
+                    <p><strong>Recuerda:</strong> Esta no es una evaluación diagnóstica. Si las dificultades persisten, consulta a un especialista.</p>
+                `;
+            } 
+            else if(respuestasSi <= 9) {
+                colorFondo = '#fff3e0';
+                mensaje = `
+                    <h3 style="color:#ef6c00;">⚠️ Algunas señales a observar</h3>
+                    <p>Tu hijo presenta varias señales que podrían estar relacionadas con dificultades en el aprendizaje de la lectura y escritura. Te sugerimos:</p>
+                    <ul style="margin-left: 20px; margin-top: 8px;">
+                        <li>Realizar actividades de conciencia fonológica (rimas, separar sílabas).</li>
+                        <li>Utilizar estrategias multisensoriales para aprender letras (arena, plastilina).</li>
+                        <li>Solicitar una evaluación psicopedagógica en la escuela o con un profesional independiente.</li>
+                        <li>Revisar nuestra <a href="#libro" style="color: #1e88e5;">Guía para padres</a> con ejercicios prácticos.</li>
+                    </ul>
+                    <p><strong>Importante:</strong> La detección temprana y el apoyo adecuado marcan una gran diferencia. No esperes a que las dificultades se agraven.</p>
+                `;
+            } 
+            else {
+                colorFondo = '#ffebee';
+                mensaje = `
+                    <h3 style="color:#c62828;">🔴 Múltiples señales de posible dislexia</h3>
+                    <p>Las respuestas indican una alta probabilidad de que tu hijo presente dislexia u otra dificultad específica del aprendizaje. Te recomendamos tomar acción de inmediato:</p>
+                    <ul style="margin-left: 20px; margin-top: 8px;">
+                        <li>Acudir con un <strong>neuropsicólogo infantil</strong> o <strong>psicólogo educativo</strong> para una evaluación formal.</li>
+                        <li>Solicitar en la escuela una adaptación curricular y apoyo dentro del aula.</li>
+                        <li>Implementar en casa un programa de lectoescritura estructurado (por ejemplo, método fonético).</li>
+                        <li>Adquirir nuestra <a href="#libro" style="color: #1e88e5;">Guía completa</a> que incluye estrategias paso a paso y actividades diarias.</li>
+                    </ul>
+                    <p><strong>No estás solo:</strong> Con la intervención adecuada, los niños con dislexia pueden desarrollar todo su potencial. El apoyo emocional es igual de importante que el académico.</p>
+                `;
+            }
+            
+            mensaje += `<p><strong>Respuestas "Sí":</strong> ${respuestasSi} de 15</p>`;
+            resultadoDiv.style.backgroundColor = colorFondo;
+            resultadoDiv.style.borderLeftColor = (respuestasSi <= 5) ? '#43a047' : (respuestasSi <= 9) ? '#ff9800' : '#f44336';
+            resultadoDiv.innerHTML = mensaje;
+            resultadoDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+        
+        // Ocultar resultado anterior cuando se cambie alguna respuesta
+        document.querySelectorAll('input[type="radio"]').forEach(radio => {
+            radio.addEventListener('change', () => {
+                document.getElementById('resultadoEncuesta').style.display = 'none';
+            });
+        });
+        
+        // Countdown 60 minutos para libro físico (persistente con localStorage)
+        let timerKey = 'physicalBookTimerEnd';
+        let endTime = localStorage.getItem(timerKey);
+        if (!endTime) {
+            endTime = Date.now() + 60 * 60 * 1000; // 60 minutos
+            localStorage.setItem(timerKey, endTime);
+        } else {
+            endTime = parseInt(endTime);
+            if (endTime <= Date.now()) {
+                document.getElementById('countdownTimer').innerHTML = "⛔ OFERTA TERMINADA";
+                document.querySelector('.stock-warning').innerHTML = '<i class="fas fa-times-circle"></i> Agotado, ya no hay unidades';
+                let btnFisico = document.querySelector('.btn-orange');
+                if (btnFisico) btnFisico.textContent = "Sin stock";
+                // Deshabilitamos el enlace para no seguir
+                btnFisico.removeAttribute('href');
+                btnFisico.style.opacity = '0.6';
+                btnFisico.style.cursor = 'not-allowed';
+            }
+        }
+        
+        function updateTimer() {
+            let now = Date.now();
+            let remaining = endTime - now;
+            if (remaining <= 0) {
+                let timerDiv = document.getElementById('countdownTimer');
+                if (timerDiv) timerDiv.innerHTML = "⛔ OFERTA TERMINADA";
+                let warning = document.querySelector('.stock-warning');
+                if (warning) warning.innerHTML = '<i class="fas fa-times-circle"></i> Agotado, ya no hay unidades';
+                let btn = document.querySelector('.btn-orange');
+                if (btn && btn.innerText !== "Sin stock") {
+                    btn.innerText = "Sin stock";
+                    btn.removeAttribute('href');
+                    btn.style.opacity = '0.6';
+                    btn.style.cursor = 'not-allowed';
+                }
+                clearInterval(timerInterval);
+                return;
+            }
+            let hours = Math.floor(remaining / (1000 * 60 * 60));
+            let minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((remaining % (1000 * 60)) / 1000);
+            let timerDiv = document.getElementById('countdownTimer');
+            if (timerDiv) timerDiv.innerHTML = `${hours.toString().padStart(2,'0')}:${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
+        }
+        let timerInterval = setInterval(updateTimer, 1000);
+        updateTimer();
+    </script>
+</body>
+</html>
